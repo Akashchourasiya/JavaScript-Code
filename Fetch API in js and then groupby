@@ -1,0 +1,27 @@
+// fetch element in js from API and groupBy element
+
+
+let url = "https://dummyjson.com/products";
+
+let getList = fetch(url);
+
+getList.then(res=>{
+
+res.json().then(list =>{
+
+/* console.log(list.products); */
+
+const categoryGroupBy = list.products.reduce((acc,element)=>{
+if(!acc[element.category]){
+acc[element.category] = [];
+}
+acc[element.category].push(element);
+return acc;
+
+},{})
+
+console.log(categoryGroupBy);
+
+})
+
+}) 
