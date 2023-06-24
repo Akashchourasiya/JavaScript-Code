@@ -1,0 +1,24 @@
+ const products = [
+  { name: 'apples', category: 'fruits' },
+  { name: 'oranges', category: 'fruits' },
+  { name: 'potatoes', category: 'vegetables' }
+];
+const groupByCategory = products.reduce((acc,element) => {
+  if(!acc[element.category]){
+  acc[element.category] = [];
+  }
+  acc[element.category].push(element);
+  return acc;
+},{});
+console.log(groupByCategory);
+
+output -
+// {
+//   fruits: [
+//     { name: 'apples', category: 'fruits' }, 
+//     { name: 'oranges', category: 'fruits' },
+//   ],
+//   vegetables: [
+//     { name: 'potatoes', category: 'vegetables' }
+//   ]
+// }
